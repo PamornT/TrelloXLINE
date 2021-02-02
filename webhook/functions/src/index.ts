@@ -90,7 +90,7 @@ export const webhookLINE = functions.region(REGION).https.onRequest( async(req, 
 })
 
 const getBoardPayload = async() => {
-  const data = await firestore.collection('board').orderBy('changeTime', 'desc').limit(13).get()
+  const data = await firestore.collection('board').orderBy('changeTime', 'desc').limit(12).get()
   if (!data.empty) {
       const payloadBoardList = data.docs.map( (doc:any) => {
         const {id, name, changeTime} = doc.data()
